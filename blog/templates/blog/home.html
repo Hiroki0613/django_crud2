@@ -1,11 +1,6 @@
 {% load static %}
 
-{% for post in posts %}
-{{ post.title }}
-{{ post.author }}
-{{ post.date_posted }}
-{{ post.content}}
-{% endfor %}
+
 
 <!DOCTYPE html>
 <html>
@@ -96,7 +91,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('img/banner-slide-1.jpg');"></div>
+                <div class="fill" style="background-image:url('static/img/banner-slide-1.jpg');"></div>
                 <div class="carousel-caption slide-up">
                     <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
                     <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
@@ -111,7 +106,7 @@
             </div>
 
             <div class="item">
-                <div class="fill" style="background-image:url('img/banner-slide-2.jpg');"></div>
+                <div class="fill" style="background-image:url('static/img/banner-slide-2.jpg');"></div>
                 <div class="carousel-caption slide-up">
                     <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
                     <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
@@ -126,7 +121,7 @@
             </div>
 
             <div class="item">
-                <div class="fill" style="background-image:url('img/banner-slide-3.jpg');"></div>
+                <div class="fill" style="background-image:url('static/img/banner-slide-3.jpg');"></div>
                 <div class="carousel-caption slide-up">
                     <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
                     <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
@@ -201,25 +196,18 @@
             <div class="col-md-7 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-12 text-inner ">
                 <div class="text-block">
                     <div class="section-heading">
-                        <h1>ABOUT <span>US</span></h1>
-                        <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut.</p>
+
+                        {% for post in posts %}
+                        <h1>{{ post.title }} <small>written by: </small><span>{{ post.author }}</span></h1>
+                        <p class="subheading">{{ post.date_posted|date:"Y/m/d P" }}</p>
+
+
+                        <ul class="aboutul">
+                            <li> <i class="fa fa-check"></i>{{ post.content}}</li>
+                        </ul>
+                        <hr>
+                        {% endfor %}
                     </div>
-
-                    <ul class="aboutul">
-                        <li> <i class="fa fa-check"></i>Vix denique fierentis ea saperet inimicu ut qui dolor oratio
-                            mnesarchum.</li>
-                        <li> <i class="fa fa-check"></i>legimus copiosae instructior ei ut vix denique fierentis atqui
-                            mucius consequat ad pro.</li>
-                        <li> <i class="fa fa-check"></i>Ea saperet inimicu ut qui dolor oratio maiestatis ubique
-                            mnesarchum.</li>
-                        <li> <i class="fa fa-check"></i>Sanctus voluptatibus et per illum noluisse facilisis quo atqui
-                            mucius ad pro.</li>
-                        <li> <i class="fa fa-check"></i>At illum noluisse facilisis quo te dictas epicurei suavitate qui
-                            his ad.</li>
-                        <li> <i class="fa fa-check"></i>Tantas propriae mediocritatem id vix qui everti efficiantur an
-                            ocurreret consetetur.</li>
-                    </ul>
-
                     <button type="button" class="btn btn-primary slide">Learn More <i class="fa fa-caret-right"></i>
                     </button>
 
@@ -323,7 +311,8 @@
                     </div>
                     <div class="arrow-down"></div>
                     <div class="testimonial_user">
-                        <div class="user-image"><img src="img/user1.png" alt="user" class="img-responsive" /></div>
+                        <div class="user-image"><img src="{% static "img/user1.png" %}" alt=" user"
+                                class="img-responsive" /></div>
                         <div class="user-info">
                             <h5>Lorem Ipsum</h5>
                             <p>Manager</p>
@@ -339,7 +328,8 @@
                     </div>
                     <div class="arrow-down"></div>
                     <div class="testimonial_user">
-                        <div class="user-image"><img src="img/user1.png" alt="user" class="img-responsive" /></div>
+                        <div class="user-image"><img src="{% static "img/user1.png" %}" alt=" user"
+                                class="img-responsive" /></div>
                         <div class="user-info">
                             <h5>Lorem Ipsum</h5>
                             <p>Manager</p>
@@ -354,7 +344,8 @@
                     </div>
                     <div class="arrow-down"></div>
                     <div class="testimonial_user">
-                        <div class="user-image"><img src="img/user1.png" alt="user" class="img-responsive" /></div>
+                        <div class="user-image"><img src="{% static "img/user1.png" %}" alt="user"
+                                class="img-responsive" /></div>
                         <div class="user-info">
                             <h5>Lorem Ipsum</h5>
                             <p>Manager</p>
