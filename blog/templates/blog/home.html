@@ -1,10 +1,8 @@
 {% extends 'account/base.html' %}
 {% load static %}
 
-
-
-
 <body id="wrapper">
+
 
     {% block body %}
 
@@ -74,7 +72,6 @@
                 class="fa fa-angle-right" aria-hidden="true"></i>
             <span class="sr-only">Next</span>
         </a>
-
     </div>
 
     <section id="features">
@@ -120,26 +117,30 @@
         </div>
 
         <div class="container-fluid">
-
             <div class="col-md-7 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-12 text-inner ">
                 <div class="text-block">
                     <div class="section-heading">
 
-                        {% for post in posts %}
-                        <h1>{{ post.title }} <small>written by: </small><span>{{ post.author }}</span></h1>
-                        <p class="subheading">{{ post.date_posted|date:"Y/m/d P" }}</p>
 
+                        <p>投稿するにはログインが必要です</p>
+                        <form action="{% url 'post-create' %}">
+                            <button type="submit" class="btn btn-primary slide">New Post<i
+                                    class="fa fa-caret-right"></i>
+                            </button>
+                        </form>
+
+                        {% for post in posts %}
+                        <h1><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a><small>written by:
+                            </small><span>{{ post.author }}</span></h1>
+                        <p class="subheading"> {{ post.date_posted|date:"Y/m/d P" }}</p>
 
                         <ul class="aboutul">
                             <li> <i class="fa fa-check"></i>{{ post.content}}</li>
                         </ul>
                         <hr>
                         {% endfor %}
+
                     </div>
-                    <button type="button" class="btn btn-primary slide">Learn More <i class="fa fa-caret-right"></i>
-                    </button>
-
-
                 </div>
             </div>
         </div>
@@ -240,7 +241,8 @@
                     <div class="arrow-down"></div>
                     <div class="testimonial_user">
                         <div class="user-image"><img src="{% static "img/user1.png" %}" alt=" user"
-                                class="img-responsive" /></div>
+                                class="img-responsive" />
+                        </div>
                         <div class="user-info">
                             <h5>Lorem Ipsum</h5>
                             <p>Manager</p>
@@ -273,7 +275,8 @@
                     <div class="arrow-down"></div>
                     <div class="testimonial_user">
                         <div class="user-image"><img src="{% static "img/user1.png" %}" alt="user"
-                                class="img-responsive" /></div>
+                                class="img-responsive" />
+                        </div>
                         <div class="user-info">
                             <h5>Lorem Ipsum</h5>
                             <p>Manager</p>
